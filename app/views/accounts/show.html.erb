@@ -1,0 +1,11 @@
+<%= render 'shared/page_title', title: "#{@account.name}'s detail" %>
+
+<div class="sell col-md-8 col-md-offset-2">
+  <h4 class="center description"><strong>Balance: </strong></h4>
+  <%= @account.balance %>
+  <div class="account-action">
+    <%= link_to "Delete this account", account_path(@account), method: :delete,
+                    data: { confirm: " Are you sure you want to delete this account?" },
+                    class: "btn btn-xs btn-danger" %>
+  </div>
+</div>
