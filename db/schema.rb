@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_171931) do
+ActiveRecord::Schema.define(version: 2018_08_17_100916) do
 
   create_table "account_moves", force: :cascade do |t|
     t.integer "account_id"
@@ -24,25 +24,13 @@ ActiveRecord::Schema.define(version: 2018_08_14_171931) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "move_types", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "moves", force: :cascade do |t|
-    t.integer "payment_type_id"
-    t.integer "move_type_id"
     t.text "description"
     t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "payment_types", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "move_type"
+    t.string "type"
   end
 
 end

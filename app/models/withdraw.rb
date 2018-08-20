@@ -1,0 +1,2 @@
+class Withdraw < Move
+end

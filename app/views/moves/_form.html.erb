@@ -11,6 +11,14 @@
       </div>
       <div class="form-group">
         <div class="control-label col-md-2">
+          <%= f.label :account %>
+        </div>
+        <div class="col-md-8">
+        </div>
+          <%= collection_select(:account, :account_id, @accounts, :id, :name, {:prompt => false}) %> 
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
           <%= f.label :amount %>
         </div>
         <div class="col-md-8">
