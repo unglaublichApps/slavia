@@ -6,24 +6,12 @@ class MovesController < ApplicationController
   end
 
   def create
-    @moveDebit = Purchase.new(moves_params)
-    @moveCredit = Purchase.new(moves_params)
-    amount = @moveCredit.amount
-    @moveCredit.amount *= -1
-    accountId = params[:account]
-    @accountCredit = Account.find(accountId[:account_id])
-    @accountDebit = Account.find(3)
-    # debugger
-    @accountCredit.balance -= amount
-    @accountDebit.balance += amount
-    @moveCredit.save
-    @accountCredit.save
-    @accountDebit.save
-    if (@moveDebit.save)
-    # if (@moveDebit.save && @moveCredit.save && @accountCredit.update && @accountDebit.update)
+    account = params[:account]
+    @move = Purchase.new(moves_params)
+    if (@move.doPurchaseCredit(account[:account_id]) && @move.doPurchaseDebit(3))
       flash[:success] = "Transaction was create"
-      redirect_to root_path
-    else
+      redirect_to accounts_path
+    else 
       render 'new'
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_100916) do
+ActiveRecord::Schema.define(version: 2018_08_21_210952) do
 
   create_table "account_moves", force: :cascade do |t|
     t.integer "account_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_100916) do
     t.datetime "updated_at", null: false
     t.integer "move_type"
     t.string "type"
+    t.integer "account_id", default: 1
   end
 
 end
