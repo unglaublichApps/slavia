@@ -1,9 +1,7 @@
 class Move < ApplicationRecord
 
-  #association
   belongs_to :account
 
-  #methods
   def doPurchaseCredit(accountId)
     account = Account.find(accountId)
     self.account = account
